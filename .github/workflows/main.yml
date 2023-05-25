@@ -1,0 +1,32 @@
+name: Update JSON Field
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_json_field:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install jq
+        run: |
+          sudo apt-get install -y jq
+
+      - name: Update JSON field
+        run: |
+          JSON=$(cat path/to/your/json/file.json)
+          UPDATED_JSON=$(echo "$JSON" | jq '.fieldToBeUpdated = "new value"')
+          echo "$UPDATED_JSON" > path/to/your/json/file.json
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
+          git add path/to/your/json/file.json
+          git commit -m "Update JSON field"
+          git push
