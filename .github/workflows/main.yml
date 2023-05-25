@@ -25,8 +25,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "your-email@example.com"
-          git add path/to/your/json/file.json
+          git config --global user.name "nageshambati100"
+          git config --global user.email "nageshambati100.com"
+          git add ./test.json
           git commit -m "Update JSON field"
           git push
