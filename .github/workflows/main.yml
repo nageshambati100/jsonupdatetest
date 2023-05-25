@@ -19,8 +19,8 @@ jobs:
 
       - name: Update JSON field
         run: |
-          JSON=$(cat path/to/your/json/file.json)
-          UPDATED_JSON=$(echo "$JSON" | jq '.fieldToBeUpdated = "new value"')
+          JSON=$(cat ./test.json)
+          UPDATED_JSON=$(echo "$JSON" | jq '.instanceLabel = "api123"')
           echo "$UPDATED_JSON" > path/to/your/json/file.json
 
       - name: Commit and push changes
