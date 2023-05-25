@@ -20,7 +20,7 @@ jobs:
       - name: Update JSON field
         run: |
           JSON=$(cat ./test.json)
-          UPDATED_JSON=$(echo "$JSON" | jq '.api.$self.instanceLabel = "api123"')
+          UPDATED_JSON=$(echo "$JSON" | jq '.api["$self"].instanceLabel = "api123"')
           echo "$UPDATED_JSON" > ./test.json
           echo "::set-output name=updated_json::$UPDATED_JSON"
 
